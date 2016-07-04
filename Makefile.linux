@@ -1,0 +1,75 @@
+# Makefile.linux
+# make UWSDR on Linux (Ubuntu)
+# Jonathan Naylor, February 2007
+
+export BINDIR  := "/usr/bin"
+export DATADIR := "/usr/share/uwsdr"
+export DESKTOPDIR := "/usr/share/applications"
+export PNGDIR := "/usr/share/pixmaps"
+
+#
+# Uncomment the two lines below to enable PortAudio support
+#
+export PA_DEF := -DUSE_PORTAUDIO=1
+export PALIBS := -lportaudio
+
+#
+# Uncomment the two lines below to enable Jack support
+#
+export JACK_DEF := -DUSE_JACK=1
+export JACKLIBS := -ljack
+
+#
+# Change your architecture here
+#
+# export ARCH=pentium
+export ARCH=x86-64
+
+export CC := $(shell wx-config --cxx)
+
+export LIBS := $(shell wx-config --libs adv,core,html,net) -lusb-1.0
+
+export CFLAGS := -O2 -Wall -Wno-non-virtual-dtor -Wno-strict-aliasing -march=$(ARCH) $(PA_DEF) $(JACK_DEF) -DDATA_DIR='$(DATADIR)' -DBIN_DIR='$(BINDIR)' $(shell wx-config --cxxflags)
+
+export LDFLAGS :=
+
+all:		GUISetup/GUISetup SDRHelp/SDRHelp UWSDRGUI/UWSDR
+
+GUISetup/GUISetup:	Common/Common.a
+		make -C GUISetup
+
+SDRHelp/SDRHelp:
+		make -C SDRHelp
+
+UWSDRGUI/UWSDR:	Common/Common.a DttSP++/DttSP.a
+		make -C UWSDRGUI
+
+DttSP++/DttSP.a:	Common/Common.a
+		make -C DttSP++
+
+Common/Common.a:
+		make -C Common
+
+install:	all
+		install -g bin -o root -m 0755 -d $(DATADIR)
+		install -g bin -o root -m 0664 Build.txt    $(DATADIR)
+		install -g bin -o root -m 0664 Changes.txt  $(DATADIR)
+		install -g bin -o root -m 0664 Copying.txt  $(DATADIR)
+		install -g bin -o root -m 0664 Install.txt  $(DATADIR)
+		install -g bin -o root -m 0664 Jobs.txt     $(DATADIR)
+
+		make -C GUISetup install
+		make -C SDRFiles install
+		make -C SDRHelp install
+		make -C UWSDRGUI install
+		make -C Help install
+		make -C meta install
+
+clean:
+		rm -f core *~ *.bak
+		make -C Common clean
+		make -C DttSP++ clean
+		make -C GUISetup clean
+		make -C SDRHelp clean
+		make -C UWSDRGUI clean
+		make -C Help clean

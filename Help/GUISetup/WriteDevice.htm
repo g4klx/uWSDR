@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Audio Device</title>
+</head>
+<body>
+<p>Once the correct <a href="AudioAPI.htm">Audio API</a> has been selected then it is possible to choose the sound device for use with
+your headphones/speakers and microphone. Depending on which platform you are using determines how the list will appear.</p>
+<h3>Windows</h3>
+<p>Depending on the API chosen, determines what sound devices will be available.</p>
+<ul>
+<li><b>MME</b> - The list will always include at least two entries, the name of the device itself, and the Microsoft Sound Mapper, which is another way to talk of the default sound device sleected via the Control Panel. In the case of only one sound device, they will in fact mean the same thing.</li>
+<li><b>Windows DirectSound</b> - Windows lists the available sound cards along with two extra pseudo-devices, the Primary Sound Capture Driver and the Primary Sound Driver.</li>
+<li><b>ASIO</b> - Normally only one option, the name of the ASIO software, the choice of the sound card is performed from the ASIO setup screen.</li>
+</ul>
+<h3>Linux</h3>
+<p>Depending on the API chosen, determines what sound devices will be available.</p>
+<ul>
+<li><b>Jack</b> - Normally only one option, the name "Jack". The choice of the sound card, or other program to connect to, is usually performed with the qjackctl program.</li>
+<li><b>OSS</b> - The list will consist of names in the form /dev/dspN where N may be a number, or missing altogether. The actual mapping between these device names and the hardware is not obvious.</li>
+<li><b>ALSA</b> - The actual names of the hardware is displayed with this API choice.</li>
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li><b>Jack</b> - Normally only one option, the name "Jack". The choice of the sound card, or other program to connect to, is usually performed with the qjackctl program.</li>
+<li><b>CoreAudio</b> - To be written.</li>
+</ul>
+</body>
+</html>

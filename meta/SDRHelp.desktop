@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=SDR Help
+Name[de]=SDR Help
+Categories=Network;HamRadio
+Comment=The UWSDR Help program
+Comment[de]=UWSDR Hilfe
+Icon=SDRHelp.png
+Exec=/usr/bin/SDRHelp
+Terminal=false

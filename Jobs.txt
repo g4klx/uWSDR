@@ -1,0 +1,17 @@
+List of Bugs and Jobs for the UWSDR Software
+============================================
+
+BUGS
+----
+
+
+TODO
+----
+
+Finish HackRF support
+
+
+Future
+------
+
+I + Q storage for different frequencies

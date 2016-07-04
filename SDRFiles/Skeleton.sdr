@@ -1,0 +1,86 @@
+# This file describes the hardware configuration of the Skeleton SDR. User
+# settings are not stored here, these settings are for the hardware and
+# should not be modified.
+#
+
+#
+# The name of the SDR hardware that this file refers to.
+#
+name=Skeleton SDR
+
+#
+# The control of the hardware may be via a number of different hardware interfaces,
+# the valid values are "audiorx" for something like a SoftRock, "demo" for a working
+# transmit and receive GUI but no hardware connected, "uwsdr1" for the first
+# version of the uwsdr hardware (using the Ethernet port), and "hpsdr" for talking
+# to a HPSDR.
+#
+type=demo
+
+#
+# The frequency limits of the hardware, in MHz. For the "audiorx" type above, the low and
+# high frequencies must be the same.
+#
+frequencyRange=1.8,30.0
+
+#
+# The transmit band entries define the frequencies on which transmission is allowed. There
+# may be more than one transmitBand entry, they are all used to allow for multiple bands.
+# No transmitBand entries means that the SDR is receive only.
+#
+transmitBand=1.81,2.0
+transmitBand=3.5,3.8
+transmitBand=5.258,5.4065
+transmitBand=7.0,7.2
+transmitBand=10.1,10.15
+transmitBand=14.0,14.35
+transmitBand=18.068,18.168
+transmitBand=21.0,21.45
+transmitBand=24.89,24.99
+transmitBand=28.0,29.7
+
+#
+# On some radios, the local oscillator operates at a multiple of the receive frequency. This
+# setting allows the frequency sent to the radio to be a multiple of the displayed frequency.
+# The default is 1.
+#
+frequencyMultiplier=1
+
+#
+# An optional offset may be added for when using something like a converter or transverter.
+# The example here of 116.0 is for a typical 144 to 28 MHz system, if not included an
+# offset of zero is assumed.
+#
+frequencyOffset=116.0
+
+#
+# The local oscillator step size in Hertz. This is unused for the "audiorx" type.
+#
+stepSize=10000
+
+#
+# If the radio is calibrated to show S9 at a certain input level, it is useful to
+# control the gain of UWSDR to ensure that this happens. The RF Gain control in the
+# Preferences of the GUI still operates, but ensures that the default setting of the
+# RF Gain of 0dB gives the correct results. The value of receiveGainOffset is default
+# to 0dB.
+#
+receiveGainOffset=0
+
+#
+# This is the sample rate of the CODEC, this is somewhat important. The value
+# is in samples per second. For the "audiorx" type it is the sample rate of the
+# sound card, the higher the sample rate, the greater the tuning range. This
+# value is 48000 for HPSDR.
+#
+sampleRate=48000
+
+#
+# If the I and Q samples are on the opposite sides of a stereo audio input, I
+# is usually assumed to be the left, then set this flag to 1. The default is 0.
+#
+swapIQ=0
+
+#
+# End of file
+#

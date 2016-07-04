@@ -1,0 +1,257 @@
+<ul>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="Overview">
+           <param name="ID" value=1>
+           <param name="Local" value="Overview.htm">
+       </object>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="The Main Screen">
+           <param name="ID" value=2>
+           <param name="Local" value="GUI.htm">
+       </object>
+       <ul>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Tuning">
+                  <param name="ID" value=3>
+                  <param name="Local" value="Tuning.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Tuning Buttons">
+                  <param name="ID" value=4>
+                  <param name="Local" value="TuningButtons.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Frequency Display">
+                  <param name="ID" value=5>
+                  <param name="Local" value="FreqDisplay.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Information Box">
+                  <param name="ID" value=6>
+                  <param name="Local" value="InfoBox.htm">
+              </object>
+
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Spectrum Display">
+                  <param name="ID" value=200>
+                  <param name="Local" value="SpectrumDisplay.htm">
+              </object>
+         <ul>
+           <li> <object type="text/sitemap">
+                    <param name="Name" value="Type Menu">
+                    <param name="ID" value=201>
+                    <param name="Local" value="SDType.htm">
+                </object>
+           <li> <object type="text/sitemap">
+                    <param name="Name" value="Refresh Menu">
+                    <param name="ID" value=202>
+                    <param name="Local" value="SDRefresh.htm">
+                </object>
+           <li> <object type="text/sitemap">
+                    <param name="Name" value="dB Range Menu">
+                    <param name="ID" value=203>
+                    <param name="Local" value="SDRange.htm">
+                </object>
+         </ul>
+
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Mode Selection">
+                  <param name="ID" value=7>
+                  <param name="Local" value="Mode.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Filter Selection">
+                  <param name="ID" value=8>
+                  <param name="Local" value="Filter.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="RIT">
+                  <param name="ID" value=9>
+                  <param name="Local" value="RIT.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Mute Button">
+                  <param name="ID" value=10>
+                  <param name="Local" value="MuteButton.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Transmit Button">
+                  <param name="ID" value=11>
+                  <param name="Local" value="TransmitButton.htm">
+              </object>
+
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="S/Power Meter">
+                  <param name="ID" value=300>
+                  <param name="Local" value="Meter.htm">
+              </object>
+         <ul>
+           <li> <object type="text/sitemap">
+                    <param name="Name" value="Receive Menu">
+                    <param name="ID" value=301>
+                    <param name="Local" value="SMReceive.htm">
+                </object>
+           <li> <object type="text/sitemap">
+                    <param name="Name" value="Transmit Menu">
+                    <param name="ID" value=302>
+                    <param name="Local" value="SMTransmit.htm">
+                </object>
+         </ul>
+
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Microphone Gain">
+                  <param name="ID" value=13>
+                  <param name="Local" value="MicGain.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Power">
+                  <param name="ID" value=14>
+                  <param name="Local" value="Power.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="AF Gain">
+                  <param name="ID" value=15>
+                  <param name="Local" value="AFGain.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Squelch">
+                  <param name="ID" value=16>
+                  <param name="Local" value="Squelch.htm">
+              </object>
+       </ul>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="Menu Button">
+           <param name="ID" value=100>
+           <param name="Local" value="Menu.htm">
+       </object>
+       <ul>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Frequency Keypad">
+                  <param name="ID" value=101>
+                  <param name="Local" value="FreqKeypad.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Record">
+                  <param name="ID" value=102>
+                  <param name="Local" value="Record.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Voice Keyer">
+                  <param name="ID" value=103>
+                  <param name="Local" value="VoiceKeyer.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Help">
+                  <param name="ID" value=104>
+                  <param name="Local" value="Help.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Hardware Info">
+                  <param name="ID" value=104>
+                  <param name="Local" value="HardwareInfo.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="About uWSDR">
+                  <param name="ID" value=105>
+                  <param name="Local" value="AboutUWSDR.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Exit">
+                  <param name="ID" value=106>
+                  <param name="Local" value="Exit.htm">
+              </object>
+       </ul>
+
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="Preferences">
+           <param name="ID" value=400>
+           <param name="Local" value="Preferences.htm">
+       </object>
+       <ul>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Frequencies">
+                  <param name="ID" value=401>
+                  <param name="Local" value="FreqPref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Modes">
+                  <param name="ID" value=402>
+                  <param name="Local" value="ModePref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Step Sizes">
+                  <param name="ID" value=403>
+                  <param name="Local" value="StepPref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Receive">
+                  <param name="ID" value=404>
+                  <param name="Local" value="ReceivePref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Transmit">
+                  <param name="ID" value=405>
+                  <param name="Local" value="TransmitPref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="ALC">
+                  <param name="ID" value=406>
+                  <param name="Local" value="ALCPref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="I + Q">
+                  <param name="ID" value=407>
+                  <param name="Local" value="IQPref.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="TX EQ">
+                  <param name="ID" value=408>
+                  <param name="Local" value="TXEQPref.htm">
+              </object>
+       </ul>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="CW Keyboard">
+           <param name="ID" value=500>
+           <param name="Local" value="CWKeyboard.htm">
+       </object>
+       <ul>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Characters">
+                  <param name="ID" value=501>
+                  <param name="Local" value="CWChars.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Messages">
+                  <param name="ID" value=502>
+                  <param name="Local" value="CWMessages.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Macros">
+                  <param name="ID" value=503>
+                  <param name="Local" value="CWMacros.htm">
+              </object>
+         <li> <object type="text/sitemap">
+                  <param name="Name" value="Buttons">
+                  <param name="ID" value=504>
+                  <param name="Local" value="CWButtons.htm">
+              </object>
+       </ul>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="Starting the GUI">
+           <param name="ID" value=20>
+           <param name="Local" value="Starting.htm">
+       </object>
+
+  <li> <object type="text/sitemap">
+           <param name="Name" value="Logging">
+           <param name="ID" value=21>
+           <param name="Local" value="Logging.htm">
+       </object>
+
+</ul>

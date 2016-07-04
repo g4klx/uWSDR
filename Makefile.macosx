@@ -1,0 +1,106 @@
+# Makefile.macosx
+# make UWSDR on Mac OS X
+
+ZIP = /usr/bin/zip
+
+#
+# Uncomment the two lines below to enable PortAudio support
+#
+export PA_DEF := -DUSE_PORTAUDIO=1
+export PALIBS := -lportaudio
+
+#
+# Uncomment the two lines below to enable Jack support
+#
+# export JACK_DEF := -DUSE_JACK=1
+# export JACKLIBS := -ljack
+
+export APPLDIR := ./MacOSX
+export DATADIR := "./data"
+
+export WXCONFIG := /usr/local/bin/wx-config
+export FRAMEWORKS := -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework CoreServices
+export CC := $(shell $(WXCONFIG) --cxx)
+
+export LIBS := $(shell $(WXCONFIG) --libs adv,core,html,net) $(FRAMEWORKS)
+
+export CFLAGS := -O3 -Wall -Wno-non-virtual-dtor -Wno-strict-aliasing  -DDATA_DIR='$(DATADIR)' $(PA_DEF) $(JACK_DEF)  $(shell $(WXCONFIG) --cxxflags)
+
+all:		GUISetup/GUISetup SDRHelp/SDRHelp UWSDRGUI/UWSDR
+
+GUISetup/GUISetup:	Common/Common.a
+		make -C GUISetup
+
+SDRHelp/SDRHelp:
+		make -C SDRHelp
+
+UWSDRGUI/UWSDR:	Common/Common.a DttSP++/DttSP.a
+		make -C UWSDRGUI
+
+DttSP++/DttSP.a:	Common/Common.a
+		make -C DttSP++
+
+Common/Common.a:
+		make -C Common
+
+install:	GUISetup.app SDRHelp.app UWSDR.app Helpfiles Otherfiles
+
+GUISetup.app: GUISetup/GUISetup
+	-mkdir $(APPLDIR)
+	-mkdir $(APPLDIR)/GUISetup.app    
+	-mkdir $(APPLDIR)/GUISetup.app/Contents
+	-mkdir $(APPLDIR)/GUISetup.app/Contents/MacOS
+	-mkdir $(APPLDIR)/GUISetup.app/Contents/Resources
+	-mkdir $(APPLDIR)/GUISetup.app/Contents/Resources/English.lproj
+	echo -n 'APPL????' > $(APPLDIR)/GUISetup.app/Contents/PkgInfo
+	cp GUISetup/GUISetup $(APPLDIR)/GUISetup.app/Contents/MacOS/GUISetup
+
+SDRHelp.app: SDRHelp/SDRHelp
+	-mkdir $(APPLDIR)
+	-mkdir $(APPLDIR)/SDRHelp.app    
+	-mkdir $(APPLDIR)/SDRHelp.app/Contents
+	-mkdir $(APPLDIR)/SDRHelp.app/Contents/MacOS
+	-mkdir $(APPLDIR)/SDRHelp.app/Contents/Resources
+	-mkdir $(APPLDIR)/SDRHelp.app/Contents/Resources/English.lproj
+	echo -n 'APPL????' > $(APPLDIR)/SDRHelp.app/Contents/PkgInfo
+	cp SDRHelp/SDRHelp $(APPLDIR)/SDRHelp.app/Contents/MacOS/SDRHelp
+
+UWSDR.app: UWSDRGUI/UWSDR
+	-mkdir $(APPLDIR)
+	-mkdir $(APPLDIR)/UWSDR.app    
+	-mkdir $(APPLDIR)/UWSDR.app/Contents
+	-mkdir $(APPLDIR)/UWSDR.app/Contents/MacOS
+	-mkdir $(APPLDIR)/UWSDR.app/Contents/Resources
+	-mkdir $(APPLDIR)/UWSDR.app/Contents/Resources/English.lproj
+	echo -n 'APPL????' > $(APPLDIR)/GUISetup.app/Contents/PkgInfo
+	cp UWSDRGUI/UWSDR $(APPLDIR)/UWSDR.app/Contents/MacOS/UWSDR
+	
+Helpfiles:
+	-mkdir $(APPLDIR)/$(DATADIR)
+	rm -f Help/GUISetup/GUISetup.zip
+	rm -f Help/UWSDR/UWSDR.zip
+	$(ZIP) -j -9 Help/GUISetup/GUISetup.zip Help/GUISetup/*.htm Help/GUISetup/*.png Help/GUISetup/*.hh[ckp]
+	$(ZIP) -j -9 Help/UWSDR/UWSDR.zip Help/UWSDR/*.htm Help/UWSDR/*.png Help/UWSDR/*.hh[ckp]
+	cp Help/GUISetup/GUISetup.zip $(APPLDIR)/$(DATADIR)
+	cp Help/UWSDR/UWSDR.zip       $(APPLDIR)/$(DATADIR)
+
+Otherfiles:
+	-mkdir $(APPLDIR)/$(DATADIR)
+	install -m 0664 Build.txt      	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 Build.txt   	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 Changes.txt 	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 Copying.txt 	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 Install.txt 	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 Jobs.txt    	                $(APPLDIR)/$(DATADIR)
+	install -m 0664 SDRFiles/Demo.sdr               $(APPLDIR)/$(DATADIR)
+	install -m 0664 SDRFiles/Skeleton.sdr           $(APPLDIR)/$(DATADIR)
+	install -m 0664 SDRFiles/Readme.txt             $(APPLDIR)/$(DATADIR)
+
+clean:
+	rm -f core *~ *.bak
+	make -C Common clean
+	make -C DttSP++ clean
+	make -C GUISetup clean
+	make -C SDRHelp clean
+	make -C UWSDRGUI clean
+	make -C Help clean

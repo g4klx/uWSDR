@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Audio API</title>
+</head>
+<body>
+<p>On many platforms there are often more one way in which to access the sound hardware. The reason for this is that the evolution of the use of multi-media applications requiring better (i.e. faster) access to the underlying hardware. In all cases the older methods are still available, and all of these are available for use with the uWSDR GUI.</p>
+<p>In all lists the oldest and slowest options are listed first. The requirements made by uWSDR on the audio system are not too great so even using the old access methods is not normally a problem.</p>
+<h3>Windows</h3>
+<p>The choices available are:</p>
+<ul>
+<li>MME</li>
+<li>Windows DirectSound</li>
+<li>ASIO</li>
+</ul>
+<p>ASIO is not an official Microsoft standard, but is provided by independant vendors. It is supposed to be the best API to use, but both MME and Windows DirectSound are perfectly adequate.</p>
+<h3>Linux</h3>
+<p>The choices are:</p>
+<ul>
+<li>Jack</li>
+<li>OSS</li>
+<li>ALSA</li>
+</ul>
+<p>ALSA is the new standard and OSS is in fact a layer on top of ALSA to provide compatibility for old programs and therefore
+there is no advantage to using OSS if ALSA is available. Jack is a generalised method to connect a program to sound devices and/or other programs allowing for great flexibility.</p>
+<h3>Mac OS X</h3>
+<p>The choices are:</p>
+<ul>
+<li>Jack</li>
+<li>CoreAudio</li>
+</ul>
+<p>CoreAudio is the standard Mac OS X method for accessing sound devices. Jack is described in the Linux section above.</p>
+</body>
+</html>

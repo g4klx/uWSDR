@@ -1,0 +1,25 @@
+# This file describes the hardware configuration of the 23cms SDR. User
+# settings are not stored here, these settings are for the hardware and
+# should not be modified.
+#
+
+name=HackRF
+
+type=hackrf
+
+frequencyRange=30.0,6000.0
+
+transmitBand=50.0,52.0
+transmitBand=70.0,70.5
+transmitBand=144.0,146.0
+transmitBand=430.0,440.0
+transmitBand=1240.0,1325.0
+transmitBand=2300.0,2450.0
+transmitBand=3400.0,3475.0
+transmitBand=5650.0,5850.0
+
+stepSize=25
+
+sampleRate=192000
+
+#

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Mode Selection</title>
+</head>
+<body>
+<p><img src="Mode.png" width="128" height="58" /></p>
+<p>This sets the SDR mode (actually the DSP code, the SDR knows nothing about the mode), to one of:</p>
+<ul>
+<li>AM</li>
+<li>CW (L) Narrow</li>
+<li>CW (L) Wide</li>
+<li>CW (U) Narrow</li>
+<li>CW (U) Wide</li>
+<li>Digital (L)</li>
+<li>Digital (U)</li>
+<li>FM Narrow</li>
+<li>FM Wide</li>
+<li>LSB</li>
+<li>USB</li>
+</ul>
+<p>There are two sets of CW modes, one based on USB and another based on LSB. These are more convenient when operating on the LF bands or via an inverting transponder on a satellite as they act in the same way as LSB does. The base mode is indicated by the latter in brackets which is U for USB and L for LSB. This also applies to the two Digital modes available.</p>
+<p>The setting of the mode can also affect the AGC, tuning speed and the filter bandwidth, depending on the values set in the <a href="ModePref.htm">Modes Preferences</a> and the <a href="StepPref.htm">Step Size Preferences</a>. The filter bandwidth can be overridden by the <a href="Filter.htm">Filter Selection</a> control below the Mode Selection.</p>
+<p>Note that on frequencies below 30 MHz, the FM Wide mode will be translated internally to FM Narrow.</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# This file describes the hardware configuration of the 23cms SDR. User
+# settings are not stored here, these settings are for the hardware and
+# should not be modified.
+#
+
+name=HackRF-HF-RX
+
+type=hackrf
+
+frequencyRange=0.3,30.0
+
+stepSize=25
+
+sampleRate=192000
+
+#

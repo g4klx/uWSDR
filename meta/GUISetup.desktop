@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=GUI Setup
+Name[de]=GUI Setup
+Categories=Network;HamRadio
+Comment=Configure the UWSDR GUI
+Comment[de]=Konfigurieren der UWSDR GUI
+Icon=GUISetup.png
+Exec=/usr/bin/GUISetup
+Terminal=false

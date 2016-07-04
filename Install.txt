@@ -1,0 +1,36 @@
+SDR Installation
+================
+
+There are five programs. UWSDR/UWSDR.exe which is the SDR GUI itself, SDREmulator/SDREmulator.exe which is as the name suggests, an emulator for the SDR, GUISetup/GUISetup.exe which sets up the required parameters to start the SDR, SDRHelp/SDRHelp.exe which allows access to the documentation, and finally SDRSetup/SDRSetup.exe which sets the initial parameters of the SDR hardware.
+
+To start you need to setup the GUI. Run GUISetup/GUISetup.exe and choose a name for your SDR, then an SDR filename. The Audio API to use should be selected, followed by the Audio  Device. On Windows the API choice is MME, DirectAudio and ASIO. These are in reverse order of preference with ASIO better than DirectAudio which is in turn better than MME. Choose the best that your sound card supports. For Linux the choices are potentially Jack, ALSA and OSS. With modern versions of Linux, OSS is a layer on top of ALSA, so choose ALSA. Jack is a general purpose method for feeding audio between programs as well as between programs and sound devices. The choice of xhich is available is made at compile time. The choices for Mac OS X are potentially Jack and CoreAudio.
+
+There are a number of .sdr files included, if the 23cms or 13cms .sdr files are used then the SDR Emulator must be used, which is described below. The Demo.sdr file can be used standalone to demonstrate the GUI without the need for any hardware. The SoftRock series of receivers and transceivers have a set of.sdr files. These devices supply their data via the sound card. With the SoftRock receivers it is possible to use the same sound card for both the SoftRock receiver input and for the speaker/headphones.
+
+Please note that the SDR Emulator and the GUI cannot operate on the same computer. The IP Address of the machine running the SDREmulator will need to be entered, this value can be found by running the command "ipconfig" in a Command Window on Windows. The control port should be an unused port number on your PC, I use 5001.
+
+You may have the option to create a desktop icon for your new SDR instance. To run the GUI, all you need to do is click on the desktop icon that is created by GUISetup. On Linux it is possible that the creation of the desktop icon is not available. If that is the case then the GUI must be started from the command line.
+
+Pressing Create will put these initial parameters into the registry/configuration file. You can change these values later, the name of existing configurations will appear on the drop down menu. Changing the values here will not change any other values associated with the named SDR if it already exists.
+
+If nothing changes, you shouldn't need to run GUISetup again, unless you get another SDR.
+
+As well as starting the GUI from an icon created by GUISetup, or the basic GUI menu entry, it is also possible to start it from the command line, the definition of this is:
+
+UWSDR [SDR Name]
+
+It is possible to have multiple names for one physical SDR, this can happen if the SDR is used (for example) for both tropo and EME work. If you have two such names (say 13cms-Tropo and 13cms-EME) then each will have it's own settings for the VFO's and other parameters. Obviously only one GUI for each physical SDR may be running at a time.
+
+If no SDR Name is given then a popup box will appear to allow you to choose an existing SDR Name to use.
+
+You may need to run the SDREmulator. Run the program with the IP address of your GUI, the port number for the control port, and the port nummber for the data port. In the example above, the control port would be 5001. The command line definition of the SDREmulator is:
+
+SDREmulator <IP Address> <Port>
+
+The SDREmulator will first ask you for the Audio API and Device of an audio device. This is used for timing purposes, so it needs no actual audio input.
+
+Then the main emulator window where you can see interaction with the GUI will appear. At the top of the window is a menu under "Source" which control the source of the data used by the emulator. The startup default is "Internal" which is the simple noisy carrier which has been available up until now within the GUI. The other options are "Sound Card" which expects the input of an I/Q receiver using the sound card that you specified at the beginning, or "Sound File" which allows you to choose a WAV file containing I/Q audio samples.
+
+Now run the SDR GUI itself, this is named UWSDR/UWSDR.exe which takes an optional argument. This is the name that you entered into the Name entry in GUISetup above. You may have a desktop icon or menu entry for it. If this argument is not given then a dialog box will appear asking you to choose the name of the GUI, from a list of previously created ones bu GUISetup.
+
+Note that running the GUI from the command line does not work on Mac OS X, and for similar reasons the SDR Emulator is not built for Mac OS X.

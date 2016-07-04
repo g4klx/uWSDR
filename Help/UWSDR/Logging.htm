@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Logging</title>
+</head>
+<body>
+<p>Many error messages are written to a log file that has the name of the SDR followed by ".log". Despite the language that the GUI operates in, the logged messages will always be in English. Normally the log should only contain a begin and end message for the GUI, but any additional messages may be important.</p>
+<p>The format of a message is that the first letter is the severity, M is for message, W for warning, E for error, and F for a fatal error. Next follows the date and time, followed by the message text itself.</p>
+<pre>
+M: 2007-02-18 14:46:39: Starting uWave SDR 0.7.5
+M: 2007-02-18 14:46:39: Using configuration: 13cms
+M: 2007-02-18 14:46:39: Using hardware configuration file: C:\Program Files\UWSDR\SDR Files\13cms.sdr
+M: 2007-02-18 14:46:39: UWSDRController: started on address 10.0.0.39 and port 5001
+M: 2007-02-18 14:46:39: SDRDataWriter: started with address 10.0.0.39 and port 5003
+M: 2007-02-18 14:46:41: SoundCardReaderWriter: started with input device 7 and output device 10
+M: 2007-02-18 14:46:41: SDRDataReader: started with address 10.0.0.39 and port 5003
+M: 2007-02-18 14:46:49: DSPControl: RX Overruns=0 RX Underruns=0 TX Overruns=0 TX Underruns=0
+M: 2007-02-18 14:46:50: SDRDataReader: 0 missed frames, 198 requests, 0 underruns
+M: 2007-02-18 14:46:50: SoundCardReaderWriter: 0 underruns and 0 overruns from 212 requests
+M: 2007-02-18 14:46:50: SDRDataWriter: 2048 max samples, 0 overruns, 0 requests, 0 packet requests, 0 packets
+M: 2007-02-18 14:46:51: Ending uWave SDR
+</pre>
+<p>Please note that the log file is overwritten every time the GUI starts, so if you have a set of messages that you want to save, then copy the original log file before restarting the GUI.</p>
+</body>
+</html>

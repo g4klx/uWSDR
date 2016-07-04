@@ -1,0 +1,154 @@
+Building UWSDR
+==============
+
+Windows
+-------
+
+Everything required to build the software is to be found in the SVN repository,
+but you will also need Visual C++ Express 2008 and wxWidgets 2.8.0 or later. The
+standard installation of wxWidgets puts it into a folder in the root directory,
+this folder name is hard coded in the Visual C++ project files. This is easily
+changed to match your installation.
+
+WxWidgets can be found at http://www.wxwidgets.org
+
+PortAudio V19 is now buildable by default from the PortAudio web page
+http://www.portaudio.com which also requires a copy of the ASIO SDK to build.
+The default build is fine apart from including the unneeded "Skeleton" which
+should be commented out. I install the portaudio.h file in a sub-directory of
+the UWSDR Software root directory named PA19, the Debug and Release .lib files
+are in the sub-directories PA19/Debug and PA19/Release respectively.
+
+The version of FFTW3 was obtained from the Power SDR distribution and cannot be
+built using Visual C++. I put the FFTW3 .lib and .h files into a sub-directory
+named FFTW3 from the UWSDR Software root directory.
+
+You'll need libusb-win32 for the Si570 support, and libusb-1.0 (libusbx) for
+libusb-1.0 support for all other USB hardware.
+
+Once built, if you want to build a proper installable version of the software,
+you should install the Nullsoft installation software, to be found at
+http://nsis.sourceforge.net/Main_Page
+
+The configuration file for NSIS is to be found in the meta directory. You will
+probably have to edit the UWSDR.nsi file to refelect the paths of your
+executables. Run NSIS against the UWSDR.nsi file and all being well you'll have
+a proper Windows install executable. For the proper creation of the installable
+exe, I have all of the required binary files, that is .exe and .dll in a sub-
+directory of the Software root directory named Release. This directory will be
+created automatically by the Visual C++ build process.
+
+The Help files are not built by default, these have to be done manually. Go to
+the Help sub-directory and then go into each of the GUISetup, SDRSetip and UWSDR
+sub-directories and simply zip up all of the files in those directories, but do
+not include any path information. On Windows XP and later you can do this by
+selecting the required files and then clicking the right hand mouse button and
+selecting "Send To" and then "Compressed (zipped) Folder", you'll probably have
+to rename the resulting zip files, the same name as the diretory plus .zip.
+
+If you try running the pre-packaged version supplied from the UWSDR web site and
+you always get problems starting any of the UWSDR programs, then you probably
+need to download and install a Microsoft Visual C++ 2008 x86 run-time library
+named vcredist_x86-sp1.exe. This can be found at
+http://www.microsoft.com/en-gb/download/details.aspx?id=26368
+
+
+Linux
+-----
+
+The build platform used is Ubuntu 12.10, although the comments apply equally
+well to earlier Ubuntu releases. Generally the comments below will apply to most
+other Linux distributions, particularly Debian which Ubuntu is based on. By
+default Ubuntu does not come with any compilers installed, and so you'll need to
+install g++ and make.
+
+Before building the software you need to ensure that you have the pre-requisites
+installed, either as packages or built from source. Note that in all cases I
+installed the libraries in /usr/lib rather than the default /usr/local/lib. To
+do this add the "--prefix=/usr" to the configure command line, however this is
+not shown in the examples below.
+
+wxWidgets 2.8.0 or later should be built and installed. This can be found at
+http://www.wxwidgets.org and will take some time to build. If you install it as
+a package then ensure that the devel part is installed as well. In order to do
+this you'll need to install the libgtk2.0-dev package.
+
+The FFTW3 library must be installed, both the libraries and the header files.
+These are available as the packages fftw3 and fftw3-dev within the Synaptic
+package Manager.
+
+UWSDR supports both Jack and direct access to sound cards using PortAudio. By
+default both are available to the program, but if you wish to change this, then
+edit the file Mekefile.linux and comment out the lines near the top of the file
+that control which of these to use. There are comments above the relevant lines.
+
+You may need PortAudio V19. This is still in beta, and has been for years, and
+can be found at http://www.portaudio.com and download the latest stable release
+of the V19 branch, which is currently pa_stable_v19_20071207.tar.gz which can be
+found at http://www.portaudio.com/archives/pa_stable_v19_20071207.tar.gz. Build
+this and install it as per its instrucions. Note that you will have to load the
+libasound2 development package otherwise portaudio will only use OSS otherwise.
+The latest v19-devel branch has problems with OSS under Linux. Note that you
+should stop all sound daemons before using the UWSDR GUI as they don't interact
+nicely when using ALSA, they can be switched off from the Ubuntu menu from
+System -> Preferences -> Sound.
+
+You will need libusb-0.x and libusb-1.0 which are to be found at
+http://www.libusb.org and should be built using the instructions given.
+
+If you are using Jack then you'll have to install the Jack support files. These
+are named jackd, libjack, libjack-dev and qjackctl. This last program is used to
+configure Jack and allows the various ports of the UWSDR GUI to be graphically
+connected to the required sound devices. It is important that the parameters set
+in qjackctl match those used by the GUI, this means that the sample rates must
+be the same (this is detected by the GUI at startup time) and the Frames/Period
+must be set to 2048. The user audio has two channels for the output sound, but
+these are essentially identical so a mono output device can be used, choose one
+of them. The user audio input is only one channel. If Jack is used for
+connecting to an SDR then two channels are used for input and output, and both
+must be connected. The name of the client within Jack of the GUI is based on the
+name of the SDR, followed by "SDR" or "User" respectively. The ports are named
+"Input" or "Output" if only one channels is in use, and "Input I", "Input Q",
+"Output I", and "Output Q" if two are used.
+
+Once all of these packages are installed, you can build the UWSDR software. From
+the command line type:
+
+$ make -f Makefile.linux
+
+Which should build all of the programs without errors, there will be a few
+warnings, but only a few.
+
+If using Ubuntu it can then be installed with the command:
+
+$ sudo make -f Makefile.linux install
+
+And on most other Linux versions by logging in as root and typing:
+
+# make -f Makefile.linux install
+
+Which will put the executables in /usr/bin and the other files into
+/usr/share/uwsdr. These locations can be changed from the top level Makefile. If
+you do change these, you will also have to change the .desktop files in the meta
+directory as these also contain paths to the executables.
+
+If none of the programs within the UWSDR package run and complain about being
+unable to find the wxGTK library then you probably have a problem with the
+configuration of the library path. Thankfully the solution is simple. You need
+to log in as the super user and edit a configuration file, On Ubuntu/Debian and
+SuSE it's /etc/ld.so.conf and on Fedora Core it's /etc/ld.so.conf.d/mypath.conf.
+In those files you should add the path to your new libraries which will
+probably be /usr/local/lib unless you override this when configuring the
+packages as explained at the beginning.
+
+
+Mac OS X
+--------
+
+Building UWSDR on Mac OS X is very similar to doing so under Linux. In each case
+read the documentation for each to find out any specific Mac OS X information.
+
+Building the basic UWSDR is the same as for Linux except that instead of using
+Makefile.linux, use Makefile.macosx instead.
+
+The Mac OS X version is still not as complete as the other versions.

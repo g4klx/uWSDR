@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>I + Q (Preferences)</title>
+</head>
+<body>
+<p><img src="IQPref.png" width="430" height="387" /></p>
+<p>This screen allows for the setting of the gain and phase imbalance between the I and Q channels on both transmit and receive, as well as the method used to create the I/Q signals.</p>
+<p>The imbalances within the hardware need to be cancelled otherwise image signals will be created, depending on the setting of the Method below, these images may make the transmitted signal wider, or create an interfering signal underneath your wanted signal. The same problems also manifest themselves on receive also if the receive I/Q balance is not set correctly. A value of zero means no change in either the gain or phase. This control has an immediate effect on the performance of the GUI so your changes can be seen in real-time, however only by pressing the OK button will the changes become permanent.</p>
+<p>The Method can take the values of "Hilbert" or "Weaver", indicating two methods used to create the I/Q signals that are sent to the SDR hardware. If the step size of the hardware exceeds 100Hz then only the "Hilbert" option is available. The main difference is down to how unwanted images appear, with "Himbert" the image on USB would appear as an LSB signal, while under "Weaver" it will appear as an interfering signal underneath your wanted signal.</p>
+<p>The transmit phase and gain controls are not operational when the SDR is receive only.</p>
+</body>
+</html>

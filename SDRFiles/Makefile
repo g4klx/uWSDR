@@ -1,0 +1,11 @@
+install:
+	install -g bin -o root -m 0755 -d $(DATADIR)
+	install -g bin -o root -m 0664 CCW-SDR-4+.sdr         $(DATADIR)
+	install -g bin -o root -m 0664 CCW-Sentry.sdr         $(DATADIR)
+	install -g bin -o root -m 0664 Demo.sdr               $(DATADIR)
+	install -g bin -o root -m 0664 HackRF.sdr             $(DATADIR)
+	install -g bin -o root -m 0664 HackRF-HF.sdr          $(DATADIR)
+	install -g bin -o root -m 0664 HackRF-HF-RX.sdr       $(DATADIR)
+	install -g bin -o root -m 0664 HackRF-RX.sdr          $(DATADIR)
+	install -g bin -o root -m 0664 Readme.txt             $(DATADIR)
+	install -g bin -o root -m 0664 Skeleton.sdr           $(DATADIR)
